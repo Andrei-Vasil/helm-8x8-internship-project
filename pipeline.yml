@@ -1,0 +1,35 @@
+version: "1.9"
+
+image: docker.8x8.com:5000/8x8/hyperloop/centos7/java17
+
+buildInfo:
+  buildName: av-flask-hello-world-internship
+  buildDescription: av-flask-hello-world-internship
+
+sonar:
+  qgName: av-flask-hello-world-internship
+  projectName: av-flask-hello-world-internship
+  blockerIssueThreshold: 50
+  coverageThreshold: 0
+  smellsCountThreshold: 5000
+  unitTestSuccessThreshold: 0
+  # exclusions: \*\*/target/\*\*/\*,\*\*/src/test/\*\*/\*
+  exclusions: 
+
+# veracode:
+#   includeUploadPattern: "target/**.jar"
+#   excludeUploadPattern: "frontend/**/*,src/**/*,**/target/**sources**.jar"
+
+deploy: false
+
+stages:
+  verify:
+  security:
+    # owaspDependencyRegex: noOWAPS
+  publish:
+    artifact:
+      docker:
+        - build docker/ -t 8x8/av-flask-hello-world-internship:latest
+        - push 8x8/av-flask-hello-world-internship:latest
+      helm:
+        - push integration/src/main/helm/vo-voicemail-notification-integration-service-char
