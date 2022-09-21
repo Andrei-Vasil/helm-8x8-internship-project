@@ -1,6 +1,6 @@
 version: "1.9"
 
-image: docker.8x8.com:5000/8x8/hyperloop/centos7/java17
+image: docker.8x8.com:5000/8x8/hyperloop/centos7/python3.7 
 
 buildInfo:
   buildName: av-flask-hello-world-internship
