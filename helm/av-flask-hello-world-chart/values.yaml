@@ -10,3 +10,17 @@ resource-limits:
 
 ports:
   container-port: 80
+
+deployment:
+  name: myapp
+  labels:
+    app: myapp
+
+pod:
+  labels:
+    app: myapp
+
+service:
+  name: myapp
+  labels:
+    app: myapp

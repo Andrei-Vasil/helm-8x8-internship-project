@@ -2,9 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
-  labels:
-    app: myapp
+  name: {{ .Values.deployment.name }}
+  labels: {{ .Values.deployment.labels }}
 spec:
   replicas: 3
   selector:
@@ -12,8 +11,7 @@ spec:
       app: myapp
   template:
     metadata:
-      labels:
-        app: myapp
+      labels: {{ .Values.pod.labels }}
     spec:
       containers:
       - name: myapp-container
