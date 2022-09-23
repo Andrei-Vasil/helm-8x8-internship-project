@@ -17,12 +17,10 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: 804064231264.dkr.ecr.us-east-1.amazonaws.com/hello-world-flask-app:latest
+        image: {{ .Values.image }}
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: {{ .Values.resource-limits.memory | quote }}
+            cpu: {{ .Values.resource-limits.cpu | quote }}
         ports: 
-        - containerPort: 80
-      imagePullSecrets:
-      - name: regcred
+        - containerPort: {{ .Values.ports.container-port }}

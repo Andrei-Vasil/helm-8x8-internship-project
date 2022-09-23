@@ -1,0 +1,12 @@
+
+image:
+  repository: docker.8x8.com:5000
+  name: 8x8/av-flask-hello-world-internship
+  pullPolicy: Always
+
+resource-limits:
+  memory: "128Mi"
+  cpu: "500m"
+
+ports:
+  container-port: 80
