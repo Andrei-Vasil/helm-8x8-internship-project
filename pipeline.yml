@@ -29,7 +29,7 @@ stages:
   publish:
     artifact:
       docker:
-        - build docker/ -t 8x8/av-flask-hello-world-internship:latest
-        - push 8x8/av-flask-hello-world-internship:latest
+        - build 8x8/av-flask-hello-world-internship:$ART_VERSION ./docker/ ./docker/Dockerfile
+        - push 8x8/av-flask-hello-world-internship:$ART_VERSION
       helm:
         - push helm/av-flask-hello-world-chart
