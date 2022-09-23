@@ -1,0 +1,5 @@
+apiVersion: v2
+appVersion: "1.0"
+name: av-flask-hello-world-chart
+description: Helm chart for Andrei Vasil's DevOps Internship
+version: 0.1.0

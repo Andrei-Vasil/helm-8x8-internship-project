@@ -32,4 +32,4 @@ stages:
         - build docker/ -t 8x8/av-flask-hello-world-internship:latest
         - push 8x8/av-flask-hello-world-internship:latest
       helm:
-        - push integration/src/main/helm/vo-voicemail-notification-integration-service-char
+        - push helm/av-flask-hello-world-chart
