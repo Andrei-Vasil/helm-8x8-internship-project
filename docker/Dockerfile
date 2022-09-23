@@ -21,5 +21,5 @@ WORKDIR /home/app
 # install python dependencies
 RUN pip install -r ./requirements.txt
 
-EXPOSE 80
+EXPOSE 8080
 CMD [ "python3", "main.py" ]

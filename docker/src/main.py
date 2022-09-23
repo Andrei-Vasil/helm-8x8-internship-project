@@ -7,7 +7,7 @@ def go():
     return 'hello world'
 
 def main():
-    app.run(host='0.0.0.0', port='80')
+    app.run(host='0.0.0.0', port='8080')
 
 
 if __name__ == "__main__":
