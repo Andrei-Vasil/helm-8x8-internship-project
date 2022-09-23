@@ -18,7 +18,7 @@ spec:
         image: {{ .Values.image }}
         resources:
           limits:
-            memory: {{ .Values.resource-limits.memory | quote }}
-            cpu: {{ .Values.resource-limits.cpu | quote }}
+            memory: {{ .Values.resourceLimits.memory | quote }}
+            cpu: {{ .Values.resourceLimits.cpu | quote }}
         ports: 
-        - containerPort: {{ .Values.ports.container-port }}
+        - containerPort: {{ .Values.ports.containerPort }}

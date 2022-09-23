@@ -4,12 +4,12 @@ image:
   name: 8x8/av-flask-hello-world-internship
   pullPolicy: Always
 
-resource-limits:
+resourceLimits:
   memory: "128Mi"
   cpu: "500m"
 
 ports:
-  container-port: 80
+  containerPort: 80
 
 deployment:
   name: myapp
