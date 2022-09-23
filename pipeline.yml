@@ -13,12 +13,6 @@ sonar:
   coverageThreshold: 0
   smellsCountThreshold: 5000
   unitTestSuccessThreshold: 0
-  # exclusions: \*\*/target/\*\*/\*,\*\*/src/test/\*\*/\*
-  exclusions: 
-
-# veracode:
-#   includeUploadPattern: "target/**.jar"
-#   excludeUploadPattern: "frontend/**/*,src/**/*,**/target/**sources**.jar"
 
 deploy: false
 
@@ -30,7 +24,6 @@ cd:
 stages:
   verify:
   security:
-    # owaspDependencyRegex: noOWAPS
   publish:
     artifact:
       docker:
