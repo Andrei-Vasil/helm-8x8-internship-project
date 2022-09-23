@@ -1,13 +1,16 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.service.name }}
-  labels: {{ .Values.service.labels }}
+  name: {{ include "av-flask-hello-world-chart.fullname" . }}
+  labels:
+{{ include "av-flask-hello-world-chart.labels" . | indent 4 }}
 spec:
-  type: ClusterIP
-  selector:
-    app: myapp
+  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.ports.containerPort }}
-      targetPort: {{ .Values.ports.containerPort }}
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "av-flask-hello-world-chart.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
