@@ -6,7 +6,7 @@ metadata:
 {{ include "av-flask-hello-world-chart.labels" . | indent 4 }}
   annotations:
     external-dns.alpha.kubernetes.io/hostname: av-flask-intership.acceptance.cloud.8x8.com
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: >-
       arn:aws:acm:us-east-1:868580389443:certificate/25d363fb-7f73-4999-ab3d-90dc13f5a454
@@ -17,7 +17,7 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
-      name: http
+      name: https
   selector:
     app.kubernetes.io/name: {{ include "av-flask-hello-world-chart.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
