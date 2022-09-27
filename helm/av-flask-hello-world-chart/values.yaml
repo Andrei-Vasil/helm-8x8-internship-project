@@ -5,17 +5,19 @@
 replicaCount: 1
 
 image:
-  repository: docker.8x8.com:5000
+  repository: 868580389443.dkr.ecr.us-east-1.amazonaws.com
   name: 8x8/av-flask-hello-world-internship
   pullPolicy: IfNotPresent
 
-imagePullSecrets: []
+imagePullSecrets:
+- name: "es-ecr"
+
 nameOverride: "av-flask"
 fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name:
@@ -34,6 +36,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  targetPort: 8080
 
 ingress:
   enabled: false
