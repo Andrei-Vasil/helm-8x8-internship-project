@@ -4,6 +4,8 @@ metadata:
   name: {{ include "av-flask-hello-world-chart.fullname" . }}
   labels:
 {{ include "av-flask-hello-world-chart.labels" . | indent 4 }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: av-flask-intership.acceptance.cloud.8x8.com
 spec:
   type: {{ .Values.service.type }}
   ports:
